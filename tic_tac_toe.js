@@ -1,3 +1,3 @@
-var box = document.getElementById("box")
-
-box.onclick()
+document.getElementById("box").onclick() = function(){
+  
+}
