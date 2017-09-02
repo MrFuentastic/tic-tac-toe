@@ -1,16 +1,27 @@
+#title {
+  color: #0632DD;
+  font-size: 70px;
+  margin-left:10px;
+}
+
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: table;
+  border-spacing: 5px;
+}
+
+.row {
+  display: table-row;
 }
 
 .cell {
-  flex: 0 0 32%;
-  height: 100px;
-  margin-bottom: 5px;
-  background-color: #999;
+  display:table-cell;  
+  height: 150px;
+  width: 150px;
+  background-color:rgba(0, 26, 128, 0.19);
+  position: relative;
 }
-/* 
 img {
-  object-fit: fill;
-} */
+  width: 150px;
+  height: 150px;
+  position: absolute;
+}
