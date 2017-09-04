@@ -6,12 +6,20 @@ $(document).ready(function(){
   var player = x;
   var winMoves = [[1,2,3],[4,5,6],[7,8,9],[1,4,6],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
   
-  var checkWin = function(player){
+  var checkWin = function(current){
     winMoves.forEach(function(winMove){
       win = false;
-      winMove.forEach(pos){
-        if player.includes(pos)
-      }
+      while (win == false){
+      winMove.forEach(function(pos){
+        if (current.includes(pos) == true){
+          win = true;
+        }
+      });
+    }
+      // if (win){
+      //   victory();
+      // };
+      console.log(win);
     });
   }
 
