@@ -4,8 +4,14 @@ $(document).ready(function(){
   var x = [];
   var o = [];
   var player = x;
-  var winMoves = [['1','2','3'],['4','5','6'],['7','8','9'],['1','4','6'],['2','5','8'],['3','6','9'],['1','5','9'],['3','5','7']];
+  var winMoves = [['1','2','3'],['4','5','6'],['7','8','9'],['1','4','7'],['2','5','8'],['3','6','9'],['1','5','9'],['3','5','7']];
   
+  var victory = function(current, winningMove){
+    $('#' + winningMove[0]).fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow");
+    $('#' + winningMove[1]).fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow");
+    $('#' + winningMove[2]).fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow");
+  }
+
   var checkWin = function(current){
     for(var i = 0; i < winMoves.length; i++){
       win = true;
@@ -16,9 +22,9 @@ $(document).ready(function(){
         }
       };
       if (win){
+        victory(current, winMoves[i]);
         break;
       }
-      console.log('asdf');
     };
   };
 
