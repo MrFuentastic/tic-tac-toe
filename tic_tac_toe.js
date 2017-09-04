@@ -4,24 +4,23 @@ $(document).ready(function(){
   var x = [];
   var o = [];
   var player = x;
-  var winMoves = [[1,2,3],[4,5,6],[7,8,9],[1,4,6],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
+  var winMoves = [['1','2','3'],['4','5','6'],['7','8','9'],['1','4','6'],['2','5','8'],['3','6','9'],['1','5','9'],['3','5','7']];
   
   var checkWin = function(current){
-    winMoves.forEach(function(winMove){
-      win = false;
-      while (win == false){
-      winMove.forEach(function(pos){
-        if (current.includes(pos) == true){
-          win = true;
+    for(var i = 0; i < winMoves.length; i++){
+      win = true;
+      for(var j = 0; j < winMoves[i].length; j++){
+        if (current.includes(winMoves[i][j]) == false){
+          win = false;
+          continue;
         }
-      });
-    }
-      // if (win){
-      //   victory();
-      // };
-      console.log(win);
-    });
-  }
+      };
+      if (win){
+        break;
+      }
+      console.log('asdf');
+    };
+  };
 
   $(".xo").one('click', function(){
     if (player == x){
