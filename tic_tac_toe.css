@@ -14,6 +14,11 @@ body{
   border-spacing: 5px;
 }
 
+#win_screen{
+  display: none;
+  border-spacing: 5px;
+}
+
 .row {
   display: table-row;
 }

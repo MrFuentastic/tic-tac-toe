@@ -3,13 +3,24 @@ $(document).ready(function(){
   var xPic = "http://icons.iconarchive.com/icons/gordon-irving/x-set/128/X-icon.png";
   var x = [];
   var o = [];
+  var xScore = 0;
+  var oScore = 0;
   var player = x;
   var winMoves = [['1','2','3'],['4','5','6'],['7','8','9'],['1','4','7'],['2','5','8'],['3','6','9'],['1','5','9'],['3','5','7']];
   
+  var score = function(){
+    if (player == x){
+      xScore += 1;
+    } else {
+      oScore += 1;
+    }
+  }
+
   var victory = function(current, winningMove){
     $('#' + winningMove[0]).fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow");
     $('#' + winningMove[1]).fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow");
     $('#' + winningMove[2]).fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow");
+    score();
   }
 
   var checkWin = function(current){
