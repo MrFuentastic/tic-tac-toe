@@ -2,20 +2,19 @@ body{
   background-image: url('https://i.ytimg.com/vi/dVy8ExtSAiM/maxresdefault.jpg');
   background-size: contain;  
 }
-#title {
+
+.text-color{
   color: #CECA0F;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;  
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;    
+}
+
+#title {
   font-size: 100px;
-  margin:2px 2px 2px 10px;
+  margin:0px 0px 0px 10px;
 }
 
 .grid {
   display: table;
-  border-spacing: 5px;
-}
-
-#win_screen{
-  display: none;
   border-spacing: 5px;
 }
 
