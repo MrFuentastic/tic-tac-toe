@@ -7,13 +7,16 @@ $(document).ready(function(){
   var oScore = 0;
   var player = x;
   var winMoves = [['1','2','3'],['4','5','6'],['7','8','9'],['1','4','7'],['2','5','8'],['3','6','9'],['1','5','9'],['3','5','7']];
-  
+
   var score = function(){
     if (player == x){
       xScore += 1;
+      $('#win-message').html("X wins! Click to play again!");
     } else {
       oScore += 1;
+      $('#win-message').html("O wins! Click to play again!");      
     }
+    $("#scores").html("<h2>X's: " + xScore + "............O's: " + oScore + "</h2>");
   }
 
   var victory = function(current, winningMove){
@@ -21,6 +24,7 @@ $(document).ready(function(){
     $('#' + winningMove[1]).fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow");
     $('#' + winningMove[2]).fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow").fadeToggle("slow");
     score();
+    // $(".xo").one('click', newGame());
   }
 
   var checkWin = function(current){
@@ -37,19 +41,27 @@ $(document).ready(function(){
         break;
       }
     };
+    // add a check draw here... and a corresponding function elsewhere
   };
+  var newGame = function(){
+    x = [];
+    o = [];
+    $(".xo").attr('src', '');
+    $(".xo").one('click', function(){
+      if (player == x){
+        x.push($(this).attr('id'));
+        $(this).attr('src', xPic);
+        checkWin(player);
+        player = o;
+      }else{
+        o.push($(this).attr('id'));      
+        $(this).attr('src', oPic)
+        checkWin(player);
+        player = x;
+      }
+    });
+  }
 
-  $(".xo").one('click', function(){
-    if (player == x){
-      x.push($(this).attr('id'));
-      $(this).attr('src', xPic);
-      checkWin(player);
-      player = o;
-    }else{
-      o.push($(this).attr('id'));      
-      $(this).attr('src', oPic)
-      checkWin(player);
-      player = x;
-    }
-  });
+  newGame();
+  
 });
